@@ -1,0 +1,227 @@
+.journey-section {
+  background-color: var(--bg-main);
+  padding: 100px 0 80px;
+  position: relative;
+}
+
+/* Header Area */
+.journey-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.offerings-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tagline-arrows {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.tagline-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.journey-main-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.journey-main-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0 auto;
+}
+
+/* 4 Cards Grid */
+.journey-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.journey-offering-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Top Accent Gradient on Hover */
+.journey-offering-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #5E18EA, #A855F7);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 5;
+}
+
+.journey-offering-card:hover::before {
+  opacity: 1;
+}
+
+.journey-offering-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(94, 24, 234, 0.3);
+}
+
+/* Image Box */
+.offering-image-box {
+  position: relative;
+  height: 175px;
+  overflow: hidden;
+}
+
+.offering-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.journey-offering-card:hover .offering-image-box img {
+  transform: scale(1.06);
+}
+
+.offering-badge-icon {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+/* Card Body */
+.offering-card-body {
+  padding: 24px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offering-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  line-height: 1.3;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.offering-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+/* CTA Link */
+.offering-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.link-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.offering-action-link:hover {
+  color: var(--primary-dark);
+}
+
+.offering-action-link:hover .link-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .journey-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .learning-journey-section {
+    padding: 60px 0;
+  }
+  .journey-header-wrap {
+    margin-bottom: 32px;
+  }
+  .journey-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .journey-badge-pill {
+    font-size: 0.76rem;
+    padding: 6px 14px;
+    margin-bottom: 12px;
+  }
+  .journey-main-title {
+    font-size: 2.0rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .journey-main-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .offering-card-body {
+    padding: 18px 16px;
+  }
+  .offering-card-title {
+    font-size: 1.05rem;
+    min-height: auto;
+    margin-bottom: 8px;
+  }
+  .offering-card-desc {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+}

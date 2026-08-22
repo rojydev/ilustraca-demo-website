@@ -1,0 +1,126 @@
+.features-section {
+  background-color: var(--white);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.feature-items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: var(--transition);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  background: var(--bg-color);
+  border-color: rgba(0,0,0,0.05);
+  transform: translateX(10px);
+}
+
+.feature-icon {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--secondary-color);
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: var(--secondary-color);
+  color: var(--white);
+}
+
+.feature-text h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.feature-text p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.features-image-container {
+  position: relative;
+}
+
+.features-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.rounded-img {
+  border-radius: var(--radius-lg);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: var(--white);
+  padding: 20px 30px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.badge-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1;
+}
+
+.badge-text {
+  font-weight: 600;
+  color: var(--primary-color);
+  line-height: 1.2;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .floating-badge {
+    left: 20px;
+    bottom: 20px;
+  }
+}

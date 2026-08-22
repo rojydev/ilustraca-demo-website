@@ -1,0 +1,36 @@
+.partners-section {
+  background-color: var(--bg-main);
+  padding: 80px 0;
+}
+
+.partners-title {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: var(--text-main);
+}
+
+.partners-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.partner-logo img {
+  opacity: 0.6;
+  transition: var(--transition);
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.partner-logo:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+@media (max-width: 768px) {
+  .partners-grid {
+    gap: 30px;
+  }
+}
