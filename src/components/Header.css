@@ -162,4 +162,78 @@
   .mobile-toggle {
     display: block;
   }
+
+  .header .btn-phone {
+    font-size: 0.80rem;
+    padding: 8px 15px;
+    gap: 6px;
+  }
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 0;
+  }
+
+  .header.scrolled {
+    padding: 6px 0;
+  }
+
+  .header-logo-img {
+    height: 38px;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header .btn-phone {
+    font-size: 0.74rem;
+    padding: 6px 12px;
+    gap: 5px;
+  }
+
+  .header .btn-phone svg {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-logo-img {
+    height: 34px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .header .btn-phone {
+    font-size: 0.68rem;
+    padding: 5px 10px;
+    gap: 4px;
+    letter-spacing: -0.2px;
+    font-weight: 700;
+  }
+
+  .header .btn-phone svg {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-logo-img {
+    height: 30px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header .btn-phone {
+    font-size: 0.64rem;
+    padding: 4px 8px;
+    gap: 3px;
+  }
+}
+
+
