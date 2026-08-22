@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './Header.css';
 
 const Header = () => {
@@ -26,7 +27,7 @@ const Header = () => {
         <div className="logo">
           <a href="#home" className="logo-brand-link">
             <img
-              src="/logo.webp"
+              src={getAssetUrl('logo.webp')}
               alt="ILUSTRACA ACADEMY"
               className="header-logo-img"
             />

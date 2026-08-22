@@ -10,6 +10,7 @@ import {
   FaArrowRight,
   FaCheckCircle
 } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './Footer.css';
 
 const Footer = () => {
@@ -148,7 +149,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="footer-brand-wrap">
-            <img src="/logo.webp" alt="ILUSTRACA ACADEMY" className="footer-logo-img" />
+            <img src={getAssetUrl('logo.webp')} alt="ILUSTRACA ACADEMY" className="footer-logo-img" />
             <p className="footer-logo-text">ILUSTRACA ACADEMY</p>
           </div>
           <p>Copyright &copy; {new Date().getFullYear()} ILUSTRACA ACADEMY. All rights reserved.</p>

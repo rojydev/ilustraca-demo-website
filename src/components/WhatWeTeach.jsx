@@ -4,12 +4,13 @@ import {
   FaArrowRight, 
   FaCheckCircle 
 } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './WhatWeTeach.css';
 
 const teachSlides = [
   {
     id: 1,
-    src: '/1.webp',
+    src: getAssetUrl('1.webp'),
     title: 'ETABS 3D Modeling & Joint Detailing',
     step: 'STEP 01',
     category: 'STRUCTURAL ANALYSIS',
@@ -17,7 +18,7 @@ const teachSlides = [
   },
   {
     id: 2,
-    src: '/2.webp',
+    src: getAssetUrl('2.webp'),
     title: 'SAFE Foundation Raft & Pile Design',
     step: 'STEP 02',
     category: 'FOUNDATION ENGINEERING',
@@ -25,7 +26,7 @@ const teachSlides = [
   },
   {
     id: 3,
-    src: '/3.webp',
+    src: getAssetUrl('3.webp'),
     title: 'Ductile Detailing & IS Code Provisions',
     step: 'STEP 03',
     category: 'IS 13920 & ACI CODE',
@@ -33,7 +34,7 @@ const teachSlides = [
   },
   {
     id: 4,
-    src: '/4.webp',
+    src: getAssetUrl('4.webp'),
     title: 'Dynamic Seismic Response Spectrum',
     step: 'STEP 04',
     category: 'LATERAL LOAD ANALYSIS',
@@ -41,7 +42,7 @@ const teachSlides = [
   },
   {
     id: 5,
-    src: '/5.webp',
+    src: getAssetUrl('5.webp'),
     title: 'Practical Rebar Scheduling & BBS',
     step: 'STEP 05',
     category: 'DRAFTING & BBS',
@@ -49,7 +50,7 @@ const teachSlides = [
   },
   {
     id: 6,
-    src: '/6.webp',
+    src: getAssetUrl('6.webp'),
     title: 'Soil-Structure Interaction Analysis',
     step: 'STEP 06',
     category: 'GEOTECHNICAL DESIGN',
@@ -57,7 +58,7 @@ const teachSlides = [
   },
   {
     id: 7,
-    src: '/7.webp',
+    src: getAssetUrl('7.webp'),
     title: 'Live Commercial Project Blueprints',
     step: 'STEP 07',
     category: 'CORPORATE WORKFLOW',
@@ -151,7 +152,7 @@ const WhatWeTeach = () => {
                   alt={activeSlide.title} 
                   className="workstation-img"
                   onError={(e) => {
-                    e.target.src = '/software_ui.png';
+                    e.target.src = getAssetUrl('software_ui.png');
                   }}
                 />
               </div>

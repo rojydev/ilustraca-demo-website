@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaLaptopCode, FaHardHat, FaChalkboardTeacher } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './Features.css';
 
 const Features = () => {
@@ -46,7 +47,7 @@ const Features = () => {
           
           <div className="features-image-container">
             <div className="features-image">
-              <img src="/feature.png" alt="Structural Design Education" className="rounded-img shadow-lg" loading="lazy" />
+              <img src={getAssetUrl('feature.png')} alt="Structural Design Education" className="rounded-img shadow-lg" loading="lazy" />
               <div className="floating-badge">
                 <span className="badge-number">10+</span>
                 <span className="badge-text">Years of<br/>Excellence</span>

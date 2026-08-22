@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './Hero.css';
 
 const CountUpNumber = ({ start = 1, target, suffix = '', duration = 2000 }) => {
@@ -62,7 +63,7 @@ const Hero = () => {
       {/* Full Cover hero_bridge.webp Background Image Layer */}
       <div className="hero-bg-cover-wrap">
         <img 
-          src="/hero_bridge.webp" 
+          src={getAssetUrl('hero_bridge.webp')} 
           alt="Bridge The Gap Between Classroom & Corporate" 
           className="hero-bg-full-img"
           loading="eager"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp, FaQuestionCircle, FaGraduationCap, FaCheck } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './FAQ.css';
 
 const FAQ = () => {
@@ -53,7 +54,7 @@ const FAQ = () => {
                 className="faq-main-img"
                 loading="lazy"
                 onError={(e) => {
-                  e.target.src = '/hero_bridge.webp';
+                  e.target.src = getAssetUrl('hero_bridge.webp');
                 }}
               />
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { getAssetUrl } from '../utils/assetHelper';
 import './WhyChooseUs.css';
 
 const WhyChooseUs = () => {
@@ -36,7 +37,7 @@ const WhyChooseUs = () => {
           
           <div className="why-choose-image reveal" ref={addToRefs} style={{ transitionDelay: '0.2s' }}>
             <div className="why-img-wrapper">
-              <img src="/destination_arch.png" alt="Structural Blueprint" />
+              <img src={getAssetUrl('destination_arch.png')} alt="Structural Blueprint" />
             </div>
           </div>
         </div>

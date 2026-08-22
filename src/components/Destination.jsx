@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { getAssetUrl } from '../utils/assetHelper';
 import './Destination.css';
 
 const Destination = () => {
@@ -8,8 +9,9 @@ const Destination = () => {
 
   useEffect(() => {
     const img = new Image();
-    img.src = '/destination_arch.png';
+    img.src = getAssetUrl('destination_arch.png');
     img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageLoaded(true); // fallback so blur is removed
   }, []);
 
   return (
@@ -21,7 +23,7 @@ const Destination = () => {
         <div className="destination-grid">
           <div className="destination-image-side reveal" ref={addToRefs}>
             <div className={`dest-img-wrapper blur-load ${imageLoaded ? 'loaded' : ''}`}>
-              <img src="/destination_arch.png" alt="Structural Design Destination" />
+              <img src={getAssetUrl('destination_arch.png')} alt="Structural Design Destination" />
             </div>
             <div className="dest-image-accent"></div>
           </div>

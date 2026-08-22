@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaDraftingCompass } from 'react-icons/fa';
+import { getAssetUrl } from '../utils/assetHelper';
 import './Preloader.css';
 
 const Preloader = ({ onFinish }) => {
@@ -7,8 +8,25 @@ const Preloader = ({ onFinish }) => {
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
+    let animationFrameId;
+    let finishTimeout1;
+    let finishTimeout2;
+    let isCompleted = false;
+
+    const completeLoading = () => {
+      if (isCompleted) return;
+      isCompleted = true;
+      setProgress(100);
+      finishTimeout1 = setTimeout(() => {
+        setIsFading(true);
+        finishTimeout2 = setTimeout(() => {
+          if (onFinish) onFinish();
+        }, 450);
+      }, 150);
+    };
+
     const startTime = performance.now();
-    const duration = 1200; // 1.2s smooth fast load
+    const duration = 1000; // 1.0s fast smooth load
 
     const updateProgress = (currentTime) => {
       const elapsed = currentTime - startTime;
@@ -21,19 +39,25 @@ const Preloader = ({ onFinish }) => {
       setProgress(currentPct);
 
       if (rawProgress < 1) {
-        requestAnimationFrame(updateProgress);
+        animationFrameId = requestAnimationFrame(updateProgress);
       } else {
-        setProgress(100);
-        setTimeout(() => {
-          setIsFading(true);
-          setTimeout(() => {
-            if (onFinish) onFinish();
-          }, 450); // Matches fade duration
-        }, 150);
+        completeLoading();
       }
     };
 
-    requestAnimationFrame(updateProgress);
+    animationFrameId = requestAnimationFrame(updateProgress);
+
+    // Guaranteed fallback timer (e.g., if browser throttles RAF in background tabs)
+    const fallbackTimer = setTimeout(() => {
+      completeLoading();
+    }, 1800);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(finishTimeout1);
+      clearTimeout(finishTimeout2);
+      clearTimeout(fallbackTimer);
+    };
   }, [onFinish]);
 
   return (
@@ -50,7 +74,11 @@ const Preloader = ({ onFinish }) => {
           </div>
 
           <div className="emblem-center-badge">
-            <img src="/logo.webp" alt="ILUSTRACA ACADEMY" className="preloader-official-logo" />
+            <img 
+              src={getAssetUrl('logo.webp')} 
+              alt="ILUSTRACA ACADEMY" 
+              className="preloader-official-logo" 
+            />
           </div>
         </div>
 
@@ -79,3 +107,4 @@ const Preloader = ({ onFinish }) => {
 };
 
 export default Preloader;
+
