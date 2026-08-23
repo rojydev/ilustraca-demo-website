@@ -758,6 +758,11 @@
     justify-content: center;
   }
 
+  .hero-rating-box {
+    align-items: center;
+    text-align: center;
+  }
+
   .hero-features-list {
     justify-content: center;
   }
@@ -883,10 +888,36 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     text-align: center;
     padding-bottom: 18px;
     margin-bottom: 18px;
+  }
+
+  .hero-avatar-stack {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .hero-rating-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-stars {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  .rating-label {
+    text-align: center;
+    margin: 0 auto;
   }
 
   .hero-features-list {
