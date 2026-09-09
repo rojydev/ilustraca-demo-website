@@ -1,6 +1,33 @@
 .why-choose-section {
-  background-color: transparent;
+  background-color: #0F172A;
+  color: #E2E8F0;
   position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle blueprint grid in background */
+.why-choose-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(94, 24, 234, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.why-choose-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .why-choose-grid {
@@ -14,10 +41,11 @@
   text-align: left;
   transform: none;
   left: auto;
+  color: #FFFFFF;
 }
 
 .why-choose-desc {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1.1rem;
   margin-bottom: 30px;
   line-height: 1.6;
@@ -33,24 +61,26 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  color: var(--text-main);
+  color: #FFFFFF;
   font-weight: 500;
   font-size: 1.05rem;
   padding: 12px 20px;
-  background: var(--bg-card);
-  border: var(--border-glass);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   transition: var(--transition);
+  backdrop-filter: blur(10px);
 }
 
 .check-list li:hover {
-  border: var(--border-glass-hover);
-  box-shadow: var(--glow-sm);
+  border-color: rgba(94, 24, 234, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 20px rgba(94, 24, 234, 0.15);
   transform: translateX(10px);
 }
 
 .check-icon {
-  color: var(--primary-glow);
+  color: #38BDF8;
   font-size: 1.4rem;
 }
 
@@ -63,8 +93,8 @@
 .why-img-wrapper {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-deep);
-  border: var(--border-glass);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .why-img-wrapper img {

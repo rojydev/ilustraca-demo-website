@@ -1,227 +1,285 @@
+/* ==========================================================================
+   Learning Journey / Offerings Section - Minimal & High-Impact
+   ========================================================================== */
+
 .journey-section {
   background-color: var(--bg-main);
-  padding: 100px 0 80px;
+  padding: 80px 0;
   position: relative;
 }
 
-/* Header Area */
 .journey-header {
   text-align: center;
-  max-width: 780px;
-  margin: 0 auto 50px;
+  max-width: 740px;
+  margin: 0 auto 50px auto;
 }
 
 .offerings-tagline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.tagline-arrows {
-  color: var(--primary-color);
-  font-size: 0.85rem;
-  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 12px;
 }
 
 .tagline-text {
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 1.5px;
   color: var(--primary-color);
+  background: var(--primary-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
   text-transform: uppercase;
 }
 
 .journey-main-title {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: -0.02em;
 }
 
 .journey-main-subtitle {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.65;
-  margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* 4 Cards Grid */
-.journey-cards-grid {
+/* Roadmap Desktop Layout (Horizontal) */
+.roadmap-wrapper {
+  position: relative;
+  margin-top: 60px;
+}
+
+.roadmap-line {
+  position: absolute;
+  top: 35px; /* Center of the 70px marker */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
+  background-size: 16px 2px;
+  background-repeat: repeat-x;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.roadmap-items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
-}
-
-.journey-offering-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--shadow-card);
-  transition: var(--transition);
+  gap: 30px;
   position: relative;
-}
-
-/* Top Accent Gradient on Hover */
-.journey-offering-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #5E18EA, #A855F7);
-  opacity: 0;
-  transition: var(--transition);
-  z-index: 5;
-}
-
-.journey-offering-card:hover::before {
-  opacity: 1;
-}
-
-.journey-offering-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(94, 24, 234, 0.3);
-}
-
-/* Image Box */
-.offering-image-box {
-  position: relative;
-  height: 175px;
-  overflow: hidden;
-}
-
-.offering-image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.journey-offering-card:hover .offering-image-box img {
-  transform: scale(1.06);
-}
-
-.offering-badge-icon {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(4px);
   z-index: 2;
 }
 
-/* Card Body */
-.offering-card-body {
-  padding: 24px 22px;
-  flex: 1;
+.roadmap-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+}
+
+.roadmap-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: var(--bg-white);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  margin-bottom: 24px;
+  position: relative;
+  box-shadow: 0 0 0 10px var(--bg-main); /* Cut out the line behind */
+  transition: var(--transition);
+}
+
+.step-num {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--bg-main);
+  z-index: 3;
+}
+
+.marker-icon {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.roadmap-item:hover .roadmap-marker {
+  background: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(94, 24, 234, 0.2), 0 0 0 10px var(--bg-main);
+}
+
+.roadmap-item:hover .marker-icon {
+  color: #fff;
+}
+
+.roadmap-content {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  flex: 1;
+}
+
+.roadmap-item:hover .roadmap-content {
+  border-color: rgba(94, 24, 234, 0.4);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-5px);
+}
+
+.roadmap-content-header {
+  margin-bottom: 16px;
+}
+
+.offering-tag-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 4px;
 }
 
 .offering-card-title {
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.3;
-  min-height: 2.6rem;
-  display: flex;
-  align-items: center;
 }
 
 .offering-card-desc {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.55;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   flex: 1;
 }
 
-/* CTA Link */
 .offering-action-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.86rem;
-  font-weight: 800;
+  font-size: 0.82rem;
+  font-weight: 700;
   color: var(--primary-color);
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.4px;
   transition: var(--transition);
   margin-top: auto;
 }
 
 .link-arrow {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   transition: transform 0.2s ease;
-}
-
-.offering-action-link:hover {
-  color: var(--primary-dark);
 }
 
 .offering-action-link:hover .link-arrow {
   transform: translateX(4px);
 }
 
+/* Responsive Tablet */
 @media (max-width: 1024px) {
-  .journey-cards-grid {
+  .roadmap-items {
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+  }
+  .roadmap-line {
+    display: none; /* Hide horizontal line for 2x2 grid */
   }
 }
 
-@media (max-width: 576px) {
-  .learning-journey-section {
-    padding: 60px 0;
+/* Responsive Mobile (Vertical Roadmap) */
+@media (max-width: 768px) {
+  .roadmap-wrapper {
+    margin-top: 40px;
+    padding-left: 20px;
   }
-  .journey-header-wrap {
-    margin-bottom: 32px;
-  }
-  .journey-cards-grid {
+  
+  .roadmap-items {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .roadmap-line {
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 45px; /* 20px padding + 25px (half of 50px marker) */
+    width: 2px;
+    height: auto;
+    background-image: linear-gradient(to bottom, var(--primary-color) 50%, transparent 50%);
+    background-size: 2px 16px;
+    background-repeat: repeat-y;
+  }
+
+  .roadmap-item {
+    flex-direction: row;
+    align-items: stretch;
     gap: 20px;
   }
-  .journey-badge-pill {
-    font-size: 0.76rem;
-    padding: 6px 14px;
-    margin-bottom: 12px;
+
+  .roadmap-marker {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 8px var(--bg-main);
+    margin-top: 10px; /* Align with top of content box somewhat */
   }
-  .journey-main-title {
-    font-size: 2.0rem;
-    line-height: 1.2;
-    margin-bottom: 12px;
+
+  .roadmap-item:hover .roadmap-marker {
+    transform: translateX(4px); /* Horizontal bump instead of vertical */
+    box-shadow: 0 10px 20px rgba(94, 24, 234, 0.2), 0 0 0 8px var(--bg-main);
   }
-  .journey-main-subtitle {
-    font-size: 0.92rem;
-    line-height: 1.6;
+
+  .roadmap-item:hover .roadmap-content {
+    transform: translateX(4px);
   }
-  .offering-card-body {
-    padding: 18px 16px;
+
+  .step-num {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65rem;
+    top: -6px;
+    right: -6px;
   }
-  .offering-card-title {
-    font-size: 1.05rem;
-    min-height: auto;
-    margin-bottom: 8px;
+
+  .marker-icon {
+    font-size: 1.2rem;
   }
-  .offering-card-desc {
-    font-size: 0.85rem;
-    margin-bottom: 16px;
+
+  .roadmap-content {
+    padding: 20px;
   }
 }
+
+@media (max-width: 600px) {
+  .journey-main-title {
+    font-size: 1.85rem;
+  }
+  
+  .journey-section {
+    padding: 60px 0;
+  }
+}
+

@@ -30,23 +30,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-
-      // Dynamic active section detection
-      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
-      const scrollPosition = window.scrollY + 140;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section.offsetTop <= scrollPosition) {
-          setActiveSection(section.id);
-          break;
-        }
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -65,7 +49,8 @@ const Header = () => {
     };
   }, [mobileMenuOpen]);
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (id) => {
+    setActiveSection(id);
     setMobileMenuOpen(false);
   };
 
@@ -119,6 +104,7 @@ const Header = () => {
                     <a
                       href={item.href}
                       className={`nav-link ${activeSection === item.id ? 'active-link' : ''}`}
+                      onClick={() => handleNavClick(item.id)}
                     >
                       <span>{item.name}</span>
                       {activeSection === item.id && <span className="active-indicator"></span>}
@@ -193,7 +179,7 @@ const Header = () => {
                 <a
                   href={item.href}
                   className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
-                  onClick={(e) => handleNavClick(e, item.href)}
+                  onClick={() => handleNavClick(item.id)}
                 >
                   <span>{item.name}</span>
                   <FaArrowRight className="mobile-link-arrow" />

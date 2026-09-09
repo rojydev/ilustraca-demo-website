@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import Preloader from './components/Preloader'
+import React from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import LearningJourney from './components/LearningJourney'
@@ -11,11 +10,8 @@ import Blog from './components/Blog'
 import Footer from './components/Footer'
 
 function App() {
-  const [loading, setLoading] = useState(true)
-
   return (
     <>
-      {loading && <Preloader onFinish={() => setLoading(false)} />}
       <Header />
       <main>
         <Hero />
